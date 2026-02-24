@@ -1,1 +1,21 @@
+<h1>Log a New Entry</h1>
 
+<form action="/entries" method="post">
+  <input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+
+  <!-- Hidden field to associate entry with the place -->
+  <input type="hidden" name="place_id" value="<%= @place_id %>">
+
+  <label>Title</label>
+  <input type="text" name="title" placeholder="Entry title">
+
+  <label>Date</label>
+  <input type="date" name="posted_on">
+
+  <label>Description</label>
+  <textarea name="description" placeholder="What did you do?"></textarea>
+
+  <button type="submit">Save Entry</button>
+</form>
+
+<a href="/places/<%= @place_id %>">Back to place</a>
